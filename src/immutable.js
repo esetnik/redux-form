@@ -1,6 +1,16 @@
 // @flow
 import actions from './actions'
 import * as _actionTypes from './actionTypes'
+
+try {
+  // eslint-disable-next-line import/no-extraneous-dependencies
+  require('immutable')
+} catch (err) {
+  throw new Error(
+    `In order to use redux-form/immutable you must have 'immutable' installed in your project dependencies.`
+  )
+}
+
 export {
   default as defaultShouldAsyncValidate
 } from './defaultShouldAsyncValidate'
